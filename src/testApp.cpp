@@ -27,6 +27,8 @@ void testApp::setup() {
     gui.add(kinectAngle.set("ANGLE", -3, -30, 30));
     gui.setPosition(ofPoint(600, 10));
     
+    gui.loadFromFile("gui_conf.xml");
+    
     contourFinder.setMinAreaRadius(MinAreaRadius);
 	contourFinder.setMaxAreaRadius(MaxAreaRadius);
 
@@ -175,6 +177,19 @@ void testApp::draw() {
 
     ofDrawBitmapString(ofToString(ofGetFrameRate()), 20, ofGetHeight()-30);
     ofDrawBitmapString("SIZE"+ofToString(contourFinder.size()), 100, ofGetHeight()-30);
+}
+
+void testApp::keyPressed(int key){
+    switch (key){
+        case 's':
+            gui.saveToFile("gui_conf.xml");
+            break;
+        case 'l':
+            gui.loadFromFile("gui_conf.xml");
+            break;
+        default:
+            break;
+    }
 }
 
 void testApp::exit() {

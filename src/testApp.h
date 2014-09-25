@@ -41,6 +41,8 @@ public:
 	
     void exit();
     
+    void keyPressed(int key);
+
     ofPoint getHighestContourPoint(int i);
     
 //	ofVideoPlayer movie;
